@@ -1,0 +1,12 @@
+#name-list {
+	list-style-type: none;
+	display: block;
+	padding: 0;
+}
+
+#name-list li {
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
