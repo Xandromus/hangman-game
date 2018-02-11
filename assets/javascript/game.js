@@ -1,6 +1,7 @@
 (function() {
     window.onload = function() {
         var wins = 0;
+        var letter;
         var starWarsCharacters = ["darth vader", "darth sidious", "darth maul", "darth tyranus", "princess leia", "luke skywalker", "lando calrissian", "anakin skywalker", "padme amidala", "obi-wan kenobi", "yoda", "qui-gon jinn", "chewbacca", "jar jar binks", "han solo", "boba fett"];
 
         // Randomly chooses a choice from the starWarsCharacters array
@@ -10,31 +11,39 @@
 
         result = function() {
             nameHolder = document.getElementById('hold');
-            correct = document.createElement('ul');
+            letterList = document.createElement('ul');
 
             for (var i = 0; i < starWarsRandom.length; i++) {
-                correct.setAttribute('id', 'name-list');
+                letterList.setAttribute('id', 'name-list');
                 letter = document.createElement('li');
                 letter.setAttribute('class', 'letter');
                 if (starWarsRandom[i] === "-") {
                     letter.innerHTML = "-";
                 } else if (starWarsRandom[i] === " ") {
-                    letter.innerHTML = " ";
+                    letter.innerHTML = " " + "&nbsp";
                 } else {
                     letter.innerHTML = "_";
                 }
 
                 nameDisplay.push(letter);
-                nameHolder.appendChild(correct);
-                correct.appendChild(letter);
+                nameHolder.appendChild(letterList);
+                letterList.appendChild(letter);
             }
         }
-        result();
+        
 
         document.onkeyup = function(event) {
 
       // Determines which key was pressed.
       var userGuess = event.key;
+
+      for (var i = 0; i < starWarsRandom.length; i++) {
+        if (starWarsRandom[i] === userGuess) {
+          nameDisplay[i].innerHTML = userGuess;
+          console.log(userGuess);
+        }
+      }
     }
+    result();
     }
 })();
