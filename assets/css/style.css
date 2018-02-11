@@ -1,13 +1,27 @@
-#name-list {
+@font-face {
+    font-family: 'death_starregular';
+    src: url('../fonts/death_star.eot');
+    src: url('../fonts/death_star.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/death_star.woff2') format('woff2'),
+         url('../fonts/death_star.woff') format('woff'),
+         url('../fonts/death_star.ttf') format('truetype'),
+         url('../fonts/death_star.svg#death_starregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#name-list, #incorrect-list {
 	list-style-type: none;
 	display: block;
 	padding: 0;
 }
 
-#name-list li {
+#name-list li, #incorrect-list li {
 	display: inline-block;
 	margin-right: 2px;
 	margin-left: 2px;
-	font-size: 4vw;
+	font-size: 3vw;
+	font-family: 'death_starregular';
 }
 
