@@ -11,13 +11,18 @@
 
 }
 
-#name-list, #incorrect-list {
+img {
+	width: 100%;
+	max-width: 640px;
+}
+
+#name-list {
 	list-style-type: none;
 	display: block;
 	padding: 0;
 }
 
-#name-list li, #incorrect-list li {
+#name-list li{
 	display: inline-block;
 	margin-right: 2px;
 	margin-left: 2px;
@@ -25,3 +30,7 @@
 	font-family: 'death_starregular';
 }
 
+#used-letters {
+	font-family: 'death_starregular';
+	font-size: 3vw;
+}
