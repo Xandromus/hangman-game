@@ -3,6 +3,7 @@
         var wins = 0;
         var letter;
         var incorrectGuess;
+        var lettersGuessed = [];
         var starWarsCharacters = ["darth vader", "darth sidious", "darth maul", "darth tyranus", "princess leia", "luke skywalker", "lando calrissian", "anakin skywalker", "padme amidala", "obi-wan kenobi", "yoda", "qui-gon jinn", "chewbacca", "jar jar binks", "han solo", "boba fett"];
 
         // Randomly chooses a choice from the starWarsCharacters array
@@ -10,7 +11,7 @@
         console.log(starWarsRandom);
         var nameDisplay = [];
         var counter = starWarsRandom.length;
-        var lives;
+        var guessesLeft;
 
         display = function() {
             nameHolder = document.getElementById('hold');
@@ -23,7 +24,7 @@
                 if (starWarsRandom[i] === "-") {
                     letter.innerHTML = "-";
                 } else if (starWarsRandom[i] === " ") {
-                    letter.innerHTML = " " + "&nbsp";
+                    letter.innerHTML = " " + "&nbsp&nbsp";
                 } else {
                     letter.innerHTML = "_";
                 }
@@ -35,32 +36,53 @@
         }
 
         guesses = function() {
-          lives = 10;
-          guessesRemaining = document.getElementById('guesses-remaining');
-          guessesRemaining.innerHTML = "<p>Number of Guesses Remaining: " + lives + "</p>";
+            guessesLeft = 10;
+            guessesRemaining = document.getElementById('guesses-remaining');
+            guessesRemaining.innerHTML = "<p>Number of Guesses Remaining: " + guessesLeft + "</p>";
         }
 
 
         document.onkeyup = function(event) {
-          
 
+          if ((guessesLeft > 0) && (counter > 1)) {
             // Determines which key was pressed.
             var userGuess = event.key;
-                for (var i = 0; i < starWarsRandom.length; i++) {
-                  if ((counter > 1) && (lives > 0)) {
+
+            for (var i = 0; i <= lettersGuessed.length - 1; i++) {
+                if (lettersGuessed[i].indexOf(userGuess) != -1) {
+                    return false;
+                }
+            }
+            console.log(userGuess);
+            if (starWarsRandom.indexOf(userGuess) === -1) {
+                lettersGuessed.push(userGuess);
+                console.log(lettersGuessed);
+                --guessesLeft;
+                guessesRemaining = document.getElementById('guesses-remaining');
+                guessesRemaining.innerHTML = "<p>Number of Guesses Remaining: " + guessesLeft + "</p>";
+                console.log(guessesLeft);
+            }
+
+            document.querySelector("#used-letters").innerHTML = lettersGuessed.join(" ");
+
+            for (var i = 0; i < starWarsRandom.length; i++) {
                     if ((starWarsRandom[i] === userGuess) && (userGuess != " ")) {
                         nameDisplay[i].innerHTML = userGuess;
                         counter -= 1;
                         console.log(counter);
                     }
-                  }
                 }
+          } else {
+
+          }
         }
+
+
 
         display();
         guesses();
         console.log(counter);
-        console.log(lives);
+        console.log(guessesLeft);
 
     }
 })();
