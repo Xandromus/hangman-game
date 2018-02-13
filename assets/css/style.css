@@ -34,3 +34,8 @@ img {
 	font-family: 'death_starregular';
 	font-size: 3vw;
 }
+
+.space {
+	padding-left: 5px;
+	padding-right: 5px;
+}
