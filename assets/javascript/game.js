@@ -5,22 +5,15 @@ var starWarsCharacters = ["darth vader", "darth sidious", "darth maul", "darth t
     var correctLetters = [];
     var lettersGuessed;
     var guessesLeft;
-    var counter;
-    var nonchar;
     var nameHolder = document.getElementById('hold');
       var letterList = document.createElement('ul');
 
     function newGame() {
-        counter = 0;
-        nonchar = 0;
       guessesLeft = 7;
       lettersGuessed = [];
       starWarsRandom = starWarsCharacters[Math.floor(Math.random() * starWarsCharacters.length)];
       console.log(starWarsRandom);
       nameDisplay = [];
-
-      
-
 
       for (var i = 0; i < starWarsRandom.length; i++) {
                 letterList.setAttribute('id', 'name-list');
@@ -28,10 +21,9 @@ var starWarsCharacters = ["darth vader", "darth sidious", "darth maul", "darth t
                 letter.setAttribute('class', 'letter');
                 if (starWarsRandom[i] === "-") {
                     letter.innerHTML = "-";
-                    nonchar += 1;
                 } else if (starWarsRandom[i] === " ") {
-                    letter.innerHTML = " " + "&nbsp&nbsp";
-                    nonchar += 1;
+                    letter.innerHTML = " ";
+                    letter.classList.add('space');
                 } else {
                     letter.innerHTML = "_";
                 }
@@ -41,10 +33,9 @@ var starWarsCharacters = ["darth vader", "darth sidious", "darth maul", "darth t
                 letterList.appendChild(letter);
 
   document.querySelector("#wins").innerHTML = "Wins: " + wins;
-  document.querySelector("#guessesRemaining").innerHTML ="Lives: " + guessesLeft;
+  document.querySelector("#guessesRemaining").innerHTML ="Number of Guesses Remaining: " + guessesLeft;
   } 
-  counter = starWarsRandom.length - nonchar;
-  console.log(counter);
+  
     }
 
     document.onkeyup = function(event) {
@@ -66,8 +57,6 @@ var starWarsCharacters = ["darth vader", "darth sidious", "darth maul", "darth t
           if ((starWarsRandom[i] === userGuess) && (userGuess != " ")) {
             nameDisplay[i].innerHTML = userGuess;
             correctLetters.push(userGuess);
-            counter -= 1;
-            console.log(counter);
           }
         }    
             document.querySelector("#usedLetters").innerHTML = lettersGuessed.join(" ");
@@ -79,11 +68,18 @@ var starWarsCharacters = ["darth vader", "darth sidious", "darth maul", "darth t
                   document.querySelector("#guessesRemaining").innerHTML ="Number of Guesses Remaining: " + guessesLeft;
 
                 if (guessesLeft === 0){
-                  
+                  alert("You lose!");
+                  document.querySelector("#name-list").innerHTML = '';
+                  document.querySelector("#usedLetters").innerHTML = '';
                   newGame();
                 }
-                
-                if (counter === 0) {
+
+                var winCheck = "";
+                for (var j = 0; j < starWarsRandom.length; j++) {
+                    winCheck = winCheck + document.getElementsByClassName('letter')[j].textContent;
+                }
+                console.log(winCheck);
+                if (winCheck === starWarsRandom) {
                   wins++;
                   
                   alert("You win!");
