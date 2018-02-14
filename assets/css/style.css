@@ -11,9 +11,29 @@
 
 }
 
-img {
+h2 {
+	font-family: 'death_starregular';
+	font-size: 1.5em;
+	text-align: center;
+	animation: fadeIn 1.25s ease-in-out 0.25s;
+    animation-fill-mode: backwards;
+    letter-spacing: 4px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+img.banner {
 	width: 100%;
-	max-width: 640px;
+	max-width: 500px;
+}
+
+img.portrait {
+	display: block;
+	margin: 10px auto;
+	width: 100%;
+	max-width: 300px;
+	animation: fadeIn 1.25s ease-in-out 0.25s;
+    animation-fill-mode: backwards;
 }
 
 #name-list {
@@ -36,6 +56,18 @@ img {
 }
 
 .space {
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: 1%;
+	padding-right: 1%;
 }
+
+/* ANIMATIONS */
+
+    @keyframes fadeIn {
+
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
