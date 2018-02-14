@@ -1,90 +1,92 @@
 var starWarsCharacters = {
     characters: [{
         name: "darth vader",
-        image: "assets/images/place.png",
+        image: "assets/images/darthvader.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "darth sidious",
-        image: "assets/images/place.png",
+        image: "assets/images/darthsidious.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "darth maul",
-        image: "assets/images/place.png",
+        image: "assets/images/darthmaul.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "darth tyranus",
-        image: "assets/images/place.png",
+        image: "assets/images/darthtyranus.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "princess leia",
-        image: "assets/images/place.png",
+        image: "assets/images/princessleia.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "luke skywalker",
-        image: "assets/images/place.png",
+        image: "assets/images/lukeskywalker.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "lando calrissian",
-        image: "assets/images/place.png",
+        image: "assets/images/landocalrissian.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "anakin skywalker",
-        image: "assets/images/place.png",
+        image: "assets/images/anakinskywalker.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "padme amidala",
-        image: "assets/images/place.png",
+        image: "assets/images/padmeamidala.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "obi-wan kenobi",
-        image: "assets/images/place.png",
+        image: "assets/images/obiwankenobi.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "yoda",
-        image: "assets/images/place.png",
+        image: "assets/images/yoda.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "qui-gon jinn",
-        image: "assets/images/place.png",
+        image: "assets/images/quigonjinn.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "chewbacca",
-        image: "assets/images/place.png",
+        image: "assets/images/chewbacca.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "jar jar binks",
-        image: "assets/images/place.png",
+        image: "assets/images/jarjarbinks.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "han solo",
-        image: "assets/images/place.png",
+        image: "assets/images/hansolo.png",
         song: "assets/songs/place.mp3"
     },
     {
         name: "boba fett",
-        image: "assets/images/place.png",
+        image: "assets/images/bobafett.png",
         song: "assets/songs/place.mp3"
     }]
 };
 
-console.log(starWarsCharacters.characters[1].name);
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 // var starWarsCharacters = ["darth vader", "darth sidious", "darth maul", "darth tyranus", "princess leia", "luke skywalker", "lando calrissian", "anakin skywalker", "padme amidala", "obi-wan kenobi", "yoda", "qui-gon jinn", "chewbacca", "jar jar binks", "han solo", "boba fett"];
+var random;
 var starWarsRandom;
+var starWarsImage;
 var nameDisplay = [];
 var wins = 0;
 var correctLetters = [];
@@ -96,8 +98,11 @@ var letterList = document.createElement('ul');
 function newGame() {
     guessesLeft = 7;
     lettersGuessed = [];
-    starWarsRandom = starWarsCharacters.characters[Math.floor(Math.random() * starWarsCharacters.characters.length)].name;
+    var random = Math.floor(Math.random() * starWarsCharacters.characters.length);
+    starWarsRandom = starWarsCharacters.characters[random].name;
+    starWarsImage = starWarsCharacters.characters[random].image;
     console.log(starWarsRandom);
+    console.log(starWarsImage);
     nameDisplay = [];
 
     for (var i = 0; i < starWarsRandom.length; i++) {
@@ -126,6 +131,8 @@ function newGame() {
 document.onkeyup = function(event) {
 
     var userGuess = event.key;
+
+    if (alphabet.indexOf(userGuess) != -1) {
 
     for (var i = 0; i <= lettersGuessed.length - 1; i++) {
         if (lettersGuessed[i].indexOf(userGuess) != -1) {
@@ -168,12 +175,13 @@ document.onkeyup = function(event) {
         wins++;
 
         alert("You win!");
+        document.querySelector("#image-holder").innerHTML = "<h2>" + starWarsRandom + "</h2><img src='" + starWarsImage + "' class='portrait' alt='" + starWarsRandom + "' />";
         document.querySelector("#name-list").innerHTML = '';
         document.querySelector("#usedLetters").innerHTML = '';
         newGame();
     }
     document.querySelector("#wins").innerHTML = "Wins: " + wins;
 }
-
+}
 
 newGame();
