@@ -1,83 +1,100 @@
+ // var num = 0;
+
+// function changeImage(el) {
+    
+//    el.click=++num;
+//    el.src = ((el.click)%2 === 0) ? "assets/images/sound_off.png" : "assets/images/sound_icon.png"; }
+
+// var audio = document.getElementById('music-holder');
+
+//document.getElementById('soundicon').addEventListener('click', function (e)
+//{
+//    e = e || window.event;
+//    audio.muted = !audio.muted;
+//    e.preventDefault();
+//}, false);
+
+
 var starWarsCharacters = {
     characters: [{
             name: "darth vader",
             image: "assets/images/darthvader.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/darthvader.mp3"
         },
         {
             name: "darth sidious",
             image: "assets/images/darthsidious.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/darthsidious.mp3"
         },
         {
             name: "darth maul",
             image: "assets/images/darthmaul.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/darthmaul.mp3"
         },
         {
             name: "darth tyranus",
             image: "assets/images/darthtyranus.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/darthtyranus.mp3"
         },
         {
             name: "princess leia",
             image: "assets/images/princessleia.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/princessleia.mp3"
         },
         {
             name: "luke skywalker",
             image: "assets/images/lukeskywalker.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/lukeskywalker.mp3"
         },
         {
             name: "lando calrissian",
             image: "assets/images/landocalrissian.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/landocalrissian.mp3"
         },
         {
             name: "anakin skywalker",
             image: "assets/images/anakinskywalker.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/anakinskywalker.mp3"
         },
         {
             name: "padme amidala",
             image: "assets/images/padmeamidala.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/padmeamidala.mp3"
         },
         {
             name: "obi-wan kenobi",
             image: "assets/images/obiwankenobi.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/obiwankenobi.mp3"
         },
         {
             name: "yoda",
             image: "assets/images/yoda.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/yoda.mp3"
         },
         {
             name: "qui-gon jinn",
             image: "assets/images/quigonjinn.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/quigonjinn.mp3"
         },
         {
             name: "chewbacca",
             image: "assets/images/chewbacca.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/chewbacca.mp3"
         },
         {
             name: "jar jar binks",
             image: "assets/images/jarjarbinks.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/jarjarbinks.mp3"
         },
         {
             name: "han solo",
             image: "assets/images/hansolo.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/hansolo.mp3"
         },
         {
             name: "boba fett",
             image: "assets/images/bobafett.png",
-            song: "assets/songs/place.mp3"
+            song: "assets/songs/bobafett.mp3"
         }
     ]
 };
@@ -88,6 +105,7 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var random;
 var starWarsRandom;
 var starWarsImage;
+var starWarsSong;
 var nameDisplay = [];
 var wins = 0;
 var correctLetters = [];
@@ -102,6 +120,7 @@ function newGame() {
     var random = Math.floor(Math.random() * starWarsCharacters.characters.length);
     starWarsRandom = starWarsCharacters.characters[random].name;
     starWarsImage = starWarsCharacters.characters[random].image;
+    starWarsSong = starWarsCharacters.characters[random].song;
     console.log(starWarsRandom);
     console.log(starWarsImage);
     nameDisplay = [];
@@ -130,11 +149,7 @@ function newGame() {
 }
 
 document.onkeyup = function(event) {
-    var target = document.querySelector("#target");
-    if (event.target != target) {
-            target.focus();
-            target.click();
-}
+
     var userGuess = event.key;
 
     if (alphabet.indexOf(userGuess) != -1) {
@@ -165,7 +180,8 @@ document.onkeyup = function(event) {
         document.querySelector("#guessesRemaining").innerHTML = "Number of Guesses Remaining: " + guessesLeft;
 
         if (guessesLeft === 0) {
-            alert("You lose!");
+            document.querySelector("#image-holder").innerHTML = "<h2>The Force is not strong with you</h2><img src='assets/images/lose.png' class='portrait' alt='salacious crumb' />";
+            document.querySelector("#music-holder").innerHTML = "<audio id='musicplayer' preload='auto' autoplay loop><source src='assets/songs/lose.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio>";
             document.querySelector("#name-list").innerHTML = '';
             document.querySelector("#usedLetters").innerHTML = '';
             newGame();
@@ -179,8 +195,8 @@ document.onkeyup = function(event) {
         if (winCheck === starWarsRandom) {
             wins++;
 
-            alert("You win!");
             document.querySelector("#image-holder").innerHTML = "<h2>" + starWarsRandom + "</h2><img src='" + starWarsImage + "' class='portrait' alt='" + starWarsRandom + "' />";
+            document.querySelector("#music-holder").innerHTML = "<audio id='musicplayer' preload='auto' autoplay loop><source src='" + starWarsSong + "' type='audio/mpeg'> Your browser does not support the audio element.</audio>";
             document.querySelector("#name-list").innerHTML = '';
             document.querySelector("#usedLetters").innerHTML = '';
             newGame();
