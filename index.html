@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Star Wars Hangman</title>
+    <link href="https://fonts.googleapis.com/css?family=Expletus+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -11,16 +12,21 @@
 <body>
     <div class="container">
         <div id="game">
-            <div class="row mt-3">
-                <div class="col-12">
-                    <img class="d-block mx-auto banner" src="assets/images/swlogo.png">
-                </div>
+            <div class="row vertical-align mt-3">
+                
+                    <div class="col-6 col-md-4">
+                    <img class="banner" src="assets/images/swlogo.png">
+                    </div>
+                    <div class="col-6 col-md-8 text-center">
+                    <h1 class="d-inline">HANGMAN TRIVIA</h1>
+                    </div>
+                
             </div>
-            <div class="row mt-3">
-                <div class="col-12 col-md-4 card">
+            <div class="row mt-4 p-3 stage vertical-align">
+                <div class="col-12 col-md-4 p-2">
                     <div id="image-holder"></div>
                 </div>
-                <div class="col-12 col-md-8 card text-center">
+                <div class="col-12 col-md-8 text-center">
                     <div>
                         <p>Press any key to get started!</p>
                     </div>

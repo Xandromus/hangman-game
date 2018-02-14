@@ -143,7 +143,7 @@ function newGame() {
         letterList.appendChild(letter);
 
         document.querySelector("#wins").innerHTML = "Wins: " + wins;
-        document.querySelector("#guessesRemaining").innerHTML = "Number of Guesses Remaining: " + guessesLeft;
+        document.querySelector("#guessesRemaining").innerHTML = "<p>Guesses Remaining: " + guessesLeft + "</p>";
     }
 
 }
@@ -177,10 +177,10 @@ document.onkeyup = function(event) {
             --guessesLeft;
 
         }
-        document.querySelector("#guessesRemaining").innerHTML = "Number of Guesses Remaining: " + guessesLeft;
+        document.querySelector("#guessesRemaining").innerHTML = "<p>Guesses Remaining: " + guessesLeft + "</p>";
 
         if (guessesLeft === 0) {
-            document.querySelector("#image-holder").innerHTML = "<h2>The Force is not strong with you</h2><img src='assets/images/lose.png' class='portrait' alt='salacious crumb' />";
+            document.querySelector("#image-holder").innerHTML = "<h2>Heh heh heh!</h2><img src='assets/images/lose.png' class='portrait' alt='salacious crumb' />";
             document.querySelector("#music-holder").innerHTML = "<audio id='musicplayer' preload='auto' autoplay loop><source src='assets/songs/lose.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio>";
             document.querySelector("#name-list").innerHTML = '';
             document.querySelector("#usedLetters").innerHTML = '';
