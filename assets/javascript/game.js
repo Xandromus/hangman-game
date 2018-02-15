@@ -182,6 +182,7 @@ document.onkeyup = function(event) {
         if (guessesLeft === 0) {
             document.querySelector("#image-holder").innerHTML = "<h2>Heh heh heh!</h2><img src='assets/images/lose.png' class='portrait' alt='salacious crumb' />";
             document.querySelector("#music-holder").innerHTML = "<audio id='musicplayer' preload='auto' autoplay loop><source src='assets/songs/lose.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio>";
+            document.querySelector("#game-status").innerHTML = "<p>You lost! Try again!</p>";
             document.querySelector("#name-list").innerHTML = '';
             document.querySelector("#usedLetters").innerHTML = '';
             newGame();
@@ -197,6 +198,7 @@ document.onkeyup = function(event) {
 
             document.querySelector("#image-holder").innerHTML = "<h2>" + starWarsRandom + "</h2><img src='" + starWarsImage + "' class='portrait' alt='" + starWarsRandom + "' />";
             document.querySelector("#music-holder").innerHTML = "<audio id='musicplayer' preload='auto' autoplay loop><source src='" + starWarsSong + "' type='audio/mpeg'> Your browser does not support the audio element.</audio>";
+            document.querySelector("#game-status").innerHTML = "<p>You won! Keep it up!</p>";
             document.querySelector("#name-list").innerHTML = '';
             document.querySelector("#usedLetters").innerHTML = '';
             newGame();
