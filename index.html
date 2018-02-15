@@ -14,12 +14,20 @@
     <div class="wrapper">
         <div class="container middle">
             <div id="game">
-                <div class="row vertical-align pt-3">
+                <header class="row vertical-align pt-3">
                     <div class="col-6 col-md-4">
                         <img class="banner" src="assets/images/swlogo.png">
                     </div>
                     <div class="col-6 col-md-8 text-center">
                         <h1 class="d-inline">HANGMAN TRIVIA</h1>
+                    </div>
+                </header>
+                <div class="row hidden-md-up">
+                    <div class="col-12">
+                        <form action="#" onsubmit="" class="text-center">
+                        <input class="mt-2 mb-2 device-input text-center" type="text" name="userChoice" pattern="[a-z]{1}" title="One letter">
+                    </input>
+                    </form>
                     </div>
                 </div>
                 <div class="row mt-4 p-3 stage vertical-align">
@@ -38,14 +46,6 @@
                     </div>
                     <div class="col-12 col-md-4 p-2 image-holder-container">
                         <div id="image-holder"></div>
-                    </div>
-                </div>
-                <div class="row hidden-md-up">
-                    <div class="col-12">
-                        <form action="#" onsubmit="" class="text-center">
-                        <input class="mt-2 mb-2 device-input text-center" type="text" name="userChoice" pattern="[a-z]{1}" title="One letter">
-                    </input>
-                    </form>
                     </div>
                 </div>
                 <div class="row">
