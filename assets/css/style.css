@@ -19,6 +19,8 @@ html {
 }
 
 body {
+    height: 100%;
+    position: relative;
     color: #FFD700;
     font-family: 'Expletus Sans', cursive;
     font-size: 24px;
