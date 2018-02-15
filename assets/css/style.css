@@ -161,11 +161,14 @@ img.portrait {
 
 @media screen and (max-height: 900px) {
     img.banner {
-        max-width: 150px;
+        max-width: 180px;
     }
-    .middle:after {
-        height: 15px;
-}
+    img.portrait {
+        max-width: 200px;
+    }
+    .stage {
+        min-height: 500px;
+    }
 }
 
 @media screen and (max-width: 575px) {
