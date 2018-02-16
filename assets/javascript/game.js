@@ -1,5 +1,5 @@
  (function() {
-    
+
      // object containing an array of characters and their key value pairs
      var starWarsCharacters = {
          characters: [{
@@ -97,10 +97,10 @@
      var guessesLeft;
 
      // div where letters from random character will be placed
-     var nameHolder = document.getElementById('hold');
+     var nameHolder = document.getElementById("hold");
 
      // ul inside hold div
-     var letterList = document.createElement('ul');
+     var letterList = document.createElement("ul");
 
      // function that runs every time a new game starts
      function newGame() {
@@ -108,11 +108,11 @@
          // number of guesses is initialized
          guessesLeft = 7;
 
-         // array to store characters that the user has already guessed 
+         // array to store characters that the user has already guessed
          lettersGuessed = [];
 
-         // random number generated 
-         var random = Math.floor(Math.random() * starWarsCharacters.characters.length);
+         // random number generated
+         random = Math.floor(Math.random() * starWarsCharacters.characters.length);
 
          // random variables for for name, image, and song are given the index of the random number
          starWarsRandom = starWarsCharacters.characters[random].name;
@@ -126,11 +126,11 @@
          for (var i = 0; i < starWarsRandom.length; i++) {
 
              // letterList ul is given id
-             letterList.setAttribute('id', 'name-list');
-             var letter = document.createElement('li');
+             letterList.setAttribute("id", "name-list");
+             var letter = document.createElement("li");
 
              // each li is given a class name
-             letter.setAttribute('class', 'letter');
+             letter.setAttribute("class", "letter");
 
              // hyphens and spaces are displayed the same
              if (starWarsRandom[i] === "-") {
@@ -139,7 +139,7 @@
                  letter.innerHTML = " ";
 
                  // spaces receive special class to increase padding
-                 letter.classList.add('space');
+                 letter.classList.add("space");
              } else {
 
                  // all other letters are displayed as underscores
@@ -159,7 +159,7 @@
              document.querySelector("#wins").innerHTML = "Wins: " + wins;
              document.querySelector("#guessesRemaining").innerHTML = "<p>Guesses Remaining: " + guessesLeft + "</p>";
          }
-     };
+     }
 
      // keyup function to capture user input
      document.onkeyup = function(event) {
@@ -209,8 +209,8 @@
                  document.querySelector("#game-status").innerHTML = "<p>YOU LOST! TRY AGAIN!</p>";
 
                  // the name display and used letters are refreshed
-                 document.querySelector("#name-list").innerHTML = '';
-                 document.querySelector("#usedLetters").innerHTML = '';
+                 document.querySelector("#name-list").innerHTML = "";
+                 document.querySelector("#usedLetters").innerHTML = "";
 
                  // a new game starts
                  newGame();
@@ -221,7 +221,7 @@
 
              // the text content from the screen display is concatenated for every letter in the random character name and updates each time the user inputs a letter
              for (var j = 0; j < starWarsRandom.length; j++) {
-                 winCheck = winCheck + document.getElementsByClassName('letter')[j].textContent;
+                 winCheck = winCheck + document.getElementsByClassName("letter")[j].textContent;
              }
 
              // the user wins once the concatenated string matches the random character name
@@ -240,8 +240,8 @@
                  document.querySelector("#game-status").innerHTML = "<p>YOU WON! KEEP IT UP!</p>";
 
                  // the name display and used letters are refreshed
-                 document.querySelector("#name-list").innerHTML = '';
-                 document.querySelector("#usedLetters").innerHTML = '';
+                 document.querySelector("#name-list").innerHTML = "";
+                 document.querySelector("#usedLetters").innerHTML = "";
 
                  // a new game starts
                  newGame();
@@ -250,7 +250,7 @@
              // wins display updates with new total
              document.querySelector("#wins").innerHTML = "Wins: " + wins;
          }
-     };
+     }
 
      // game function is called
      newGame();
