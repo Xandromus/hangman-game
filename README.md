@@ -14,6 +14,28 @@ If a user runs out of guesses before guessing all of the letters correctly, a lo
 
 Music can be toggled on/off at any point during the game.
 
+## Concepts Used
+
+This is a straightforward game built with fundamental Javascript concepts:
+
+- variables
+- arrays
+- objects
+- functions
+- if/else statements
+- for loops
+- methods
+- DOM manipulation
+- events
+
+## Limitations
+
+This game uses the keyup event to capture user input and is currently limited to gameplay on desktop/laptop devices. A future area of exploration would be to add one of the following:
+
+1. A Virtual keyboard that appears on smaller screens to capture user input
+2. An input field to capture user input
+
+This input could then be passed through a function in a similar way to how the keyup event function works.
 
 ## Built With
 
