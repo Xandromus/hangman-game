@@ -15,21 +15,16 @@
         <div class="container middle">
             <div id="game">
                 <header class="row vertical-align pt-3">
-                    <div class="col-6 col-md-4">
+                    <div class="col-5 col-sm-3 col-md-4 text-center">
                         <img class="banner" src="assets/images/swlogo.png">
                     </div>
-                    <div class="col-6 col-md-8 text-center">
+                    <div class="col-5 col-sm-8 col-md-7 text-center">
                         <h1 class="d-inline">HANGMAN TRIVIA</h1>
                     </div>
-                </header>
-                <div class="row hidden-md-up">
-                    <div class="col-12">
-                        <form action="#" onsubmit="" class="text-center">
-                        <input class="mt-2 mb-2 device-input text-center" type="text" name="userChoice" pattern="[a-z]{1}" title="One letter">
-                    </input>
-                    </form>
+                    <div class="col-2 col-sm-1 col-md-1 text-center">
+                        <a id="soundicon" href="#"><img id="mute" src="assets/images/sound_off.png" alt="sound icon" title="sound_icon" onclick="changeImage(this)" /></a>
                     </div>
-                </div>
+                </header>
                 <div class="row mt-4 p-3 stage vertical-align">
                     <div class="col-12 col-md-8 text-center">
                         <div id="game-status">
@@ -49,10 +44,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div id="music-holder"></div>
-                    <!--<div class="col-12"><a id="soundicon" href="#" >
-                <img id="mute" src="assets/images/sound_off.png" alt="sound icon" title="sound_icon" onclick="changeImage(this)" /></a>
-                </div> -->
+                    <div id="music-holder">
+                        <audio id='musicplayer' preload='auto' autoplay loop>
+                            <source id="musicSource" src="assets/songs/intro.mp3" type='audio/mpeg'> Your browser does not support the audio element.</audio>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,6 +58,7 @@
                 </script> Xander Rapstine</p>
         </footer>
     </div>
+    <script type="text/javascript" src="assets/javascript/sound.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
