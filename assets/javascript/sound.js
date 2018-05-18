@@ -1,3 +1,6 @@
+ var soundModule = {};
+ (function() {
+
 var num = 0;
 
 // changes sound icon to desired mute state when clicked
@@ -14,3 +17,7 @@ document.getElementById('soundicon').addEventListener('click', function(e) {
     audio.muted = !audio.muted;
     e.preventDefault();
 }, false);
+
+soundModule.changeImage = changeImage;
+
+ })();

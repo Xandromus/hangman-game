@@ -1,12 +1,12 @@
-# Star Wars Hangman Game
+# Order 66: A Star Wars Hangman Game
 
-Week 3 Assignment: Create a simple hangman game using vanilla Javascript
+A simple hangman game using vanilla Javascript
 
 ## Description
 
-[Star Wars Hangman](https://xandromus.github.io/hangman-game/)
+[Order 66](https://xandromus.github.io/order66/)
 
-![Star Wars Hangman Game](https://xandromus.github.io/responsive-portfolio/assets/images/starwars.png)
+![Order 66](https://xandromus.github.io/responsive-portfolio/assets/images/starwars.png)
 
 A Star Wars-themed "hangman"-style game where the user has 7 guesses to pick the letters in a randomly chosen Star Wars character's name.
 
